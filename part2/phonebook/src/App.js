@@ -61,7 +61,7 @@ const App = () => {
     personService 
       .create(personObject)
       .then(personData => {
-        setPersons(persons.concat(personData))
+        setPersons(personData)
         setNewName('')
         setNewNumber('')
         newNoti({message:`Added ${personData.name}`, error:false})
