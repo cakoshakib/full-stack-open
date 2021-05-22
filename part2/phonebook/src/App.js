@@ -18,9 +18,12 @@ const App = () => {
     personService
       .getAll()
       .then(personData => {
+        console.log(personData)
         setPersons(personData)
       })
   }, [])
+
+  console.log(persons)
   
   const resetMessage = () => {
     setTimeout(() => {
@@ -61,10 +64,10 @@ const App = () => {
     personService 
       .create(personObject)
       .then(personData => {
-        setPersons(personData)
+        setPersons(persons.concat(personData))
         setNewName('')
         setNewNumber('')
-        newNoti({message:`Added ${personData.name}`, error:false})
+        newNoti({message:`Added ${newName}`, error:false})
         resetMessage()
       })
   }
