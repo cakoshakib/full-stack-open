@@ -70,6 +70,14 @@ const App = () => {
         newNoti({message:`Added ${newName}`, error:false})
         resetMessage()
       })
+      .catch(error => {
+        newNoti({
+          message:error.response.data.error,
+          error:true
+        })
+        resetMessage()
+        console.log(error.response.data.error)
+      })
   }
   
   const deletePerson = (person) => {
