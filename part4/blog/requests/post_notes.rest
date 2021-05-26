@@ -1,0 +1,14 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNha29zaGFraWIiLCJpZCI6IjYwYWU3MTg0NjQzZmQwMDgzODUyNzdlNSIsImlhdCI6MTYyMjA1Mjc3NiwiZXhwIjoxNjIyMDU2Mzc2fQ.3FjWoIOBgflSdlgM8PYfhdi94DmuN2EP-MyLrMW2aWU 
+
+{
+    "title": "Ayyy",
+    "author": "Mikyle Mirza",
+    "url": "https://github.com/mikylemirza",
+    "likes": 11
+}
+
+###
+DELETE http://localhost:3003/api/blogs/60ae787d49d4f00ef681bacb
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNha29zaGFraWIiLCJpZCI6IjYwYWU3MTg0NjQzZmQwMDgzODUyNzdlNSIsImlhdCI6MTYyMjA1Mzg4MiwiZXhwIjoxNjIyMDU3NDgyfQ.3zLC1FyPQRCOHkGHcmAWWPq1Otor7NR2kDFB4debmKU
