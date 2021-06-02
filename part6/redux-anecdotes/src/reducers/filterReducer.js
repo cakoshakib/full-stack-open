@@ -8,7 +8,6 @@ const filterReducer = (state = '', action) => {
 }
 
 export const changeFilter = (filter) => {
-  console.log(filter)
   return {
     type: 'SET_FILTER',
     filter,
