@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Form, Button } from 'react-bootstrap'
 
 const CreateBlog = ({ createBlog }) => {
   const [newBlog, setNewBlog] = useState({
@@ -19,10 +20,14 @@ const CreateBlog = ({ createBlog }) => {
     )
   }
 
+  const padding = {
+    'padding-right': 10
+  }
+
   return (
-    <form onSubmit={handleAddBlog}>
-      <div>
-      title:
+    <Form onSubmit={handleAddBlog}>
+      <Form.Group>
+        <Form.Label style={padding}>title: </Form.Label>
         <input
           type='text'
           id='title'
@@ -34,9 +39,9 @@ const CreateBlog = ({ createBlog }) => {
             url: newBlog.url
           })}
         />
-      </div>
-      <div>
-      author:
+      </Form.Group>
+      <Form.Group>
+        <Form.Label style={padding}>author: </Form.Label>
         <input
           type='text'
           id='author'
@@ -48,9 +53,9 @@ const CreateBlog = ({ createBlog }) => {
             url: newBlog.url
           })}
         />
-      </div>
-      <div>
-      url:
+      </Form.Group>
+      <Form.Group>
+        <Form.Label style={padding}>url: </Form.Label>
         <input
           type='text'
           value={newBlog.url}
@@ -62,9 +67,13 @@ const CreateBlog = ({ createBlog }) => {
             url: target.value
           })}
         />
+      </Form.Group>
+      <div style={{ 'padding-bottom': 10 }}>
+        <Button variant="success" id='create-blog' type='submit'>
+          create
+        </Button>
       </div>
-      <button id='create-blog' type='submit'>create</button>
-    </form>
+    </Form>
 
   )
 }

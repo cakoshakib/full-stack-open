@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Table } from 'react-bootstrap'
 
 const Users = ({ users }) => (
-  <table>
+  <Table responsive striped>
     <tbody>
       <tr>
-        <th></th>
+        <th>name</th>
         <th>blogs created</th>
       </tr>
       {users.map((usr, idx) =>
@@ -17,7 +18,7 @@ const Users = ({ users }) => (
         </tr>
       )}
     </tbody>
-  </table>
+  </Table>
 )
 
 export default Users

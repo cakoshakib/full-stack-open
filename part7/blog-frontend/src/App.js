@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
+
+// Components
 import Blogs from './components/Blogs'
 import CreateBlog from './components/CreateBlog'
 import Login from './components/Login'
@@ -7,18 +9,27 @@ import Notification from './components/Notification'
 import BlogPage from './components/BlogPage'
 import Users from './components/Users'
 import User from './components/UserPage'
+
+// Redux
 import { useDispatch, useSelector } from 'react-redux'
 import { setNotification } from './reducers/notificationReducer'
 import { createBlog, initializeBlogs } from './reducers/blogReducer'
 import { loginUser, logoutUser, setUser } from './reducers/userReducer'
+
+// Services
 import userService from './services/users'
 
+
+// Router
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from 'react-router-dom'
+
+// Styles
+import { Navbar, Nav, Button, Form } from 'react-bootstrap'
+
 
 const App = () => {
   const dispatch = useDispatch()
@@ -77,36 +88,58 @@ const App = () => {
 
   const user = useSelector(state => state.user)
 
+  const smallMiddleContainer = {
+    'margin': 'auto',
+    'width': '30%',
+  }
+
   if (user === null) {
     return (
-      <div>
-        <Notification />
-        <Login
-          username={username}
-          password={password}
-          setUsername={setUsername}
-          setPassword={setPassword}
-          handleLogin={handleLogin}
-        />
+      <div className='bg-light d-flex align-items-center min-vh-100'>
+        <div className="jumbotron container" style={smallMiddleContainer}>
+          <Notification />
+          <Login
+            username={username}
+            password={password}
+            setUsername={setUsername}
+            setPassword={setPassword}
+            handleLogin={handleLogin}
+            className="h-100"
+          />
+        </div>
       </div>
     )
   }
+
   const padding = {
-    padding: 5
-  }
-  const navStyle = {
-    padding: 5,
-    background: '#cad3e0'
+    'padding-right': 10
   }
 
+
   return (
-    <Router>
-      <div style={navStyle}>
-        <Link style={padding} to="/">blogs</Link>
-        <Link style={padding} to="/users">users</Link>
-        <span style={padding}>{user.name} logged in</span>
-        <button onClick={handleLogout}>logout</button>
-      </div>
+    <div className="container">
+      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+        <Navbar.Brand href="#">Blog App</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="#" as="span">
+              <Link  to="/">blogs</Link>
+            </Nav.Link>
+            <Nav.Link href="#" as="span">
+              <Link to="/users">users</Link>
+            </Nav.Link>
+          </Nav>
+          <div className="navbar-text" style={padding}>
+            {user.name} logged in
+          </div>
+          <Form classname="d-flex">
+            <Button variant="outline-primary" onClick={handleLogout}>
+              logout
+            </Button>
+          </Form>
+        </Navbar.Collapse>
+      </Navbar>
 
       <Notification />
       <Switch>
@@ -121,17 +154,17 @@ const App = () => {
           <BlogPage blogs={blogs}/>
         </Route>
         <Route path="/">
-          <h2>blogs</h2>
+          <h2>Blogs</h2>
+          <Blogs
+            user={user}
+          />
           <Togglable buttonLabel="create blog" ref={blogFormRef}>
             <h2>create new</h2>
             <CreateBlog createBlog={handleCreateBlog} />
           </Togglable>
-          <Blogs
-            user={user}
-          />
         </Route>
       </Switch>
-    </Router>
+    </div>
   )
 }
 
