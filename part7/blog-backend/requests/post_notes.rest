@@ -1,0 +1,18 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNha29zaGFraWIiLCJpZCI6IjYwYWU3MTg0NjQzZmQwMDgzODUyNzdlNSIsImlhdCI6MTYyMzQzMDE5OSwiZXhwIjoxNjIzNDMzNzk5fQ.9wvef4ZQL48tsXED1qv9c4-qlXTYqDZ47zBpETU82gE
+
+{
+    "title": "this is a test",
+    "author": "Shakib",
+    "url": "https://github.com/mikylemirza"
+}
+
+###
+DELETE http://localhost:3003/api/blogs/60afe24a8fcfad0b77e56993
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNha29zaGFraWIiLCJpZCI6IjYwYWU3MTg0NjQzZmQwMDgzODUyNzdlNSIsImlhdCI6MTYyMjE0MjI3NSwiZXhwIjoxNjIyMTQ1ODc1fQ.uogr9I_Oss5owpT1-5HKup2-7DtV-sJm7To_rlDmFCk
+
+###
+DELETE http://localhost:3003/api/blogs/60afef981a14bc13d8d838ea
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNha29zaGFraWIiLCJpZCI6IjYwYWU3MTg0NjQzZmQwMDgzODUyNzdlNSIsImlhdCI6MTYyMjE0MjI3NSwiZXhwIjoxNjIyMTQ1ODc1fQ.uogr9I_Oss5owpT1-5HKup2-7DtV-sJm7To_rlDmFCk
+
