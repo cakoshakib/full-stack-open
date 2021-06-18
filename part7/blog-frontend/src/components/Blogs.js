@@ -23,12 +23,12 @@ const Blogs = () => {
   return (
     <Table striped>
       <tbody>
-        {allBlogs.map(blog =>
-          <Blog
+        {allBlogs.map(blog => {
+          return <Blog
             key={blog.id}
             blog={blog}
           />
-        )}
+        })}
       </tbody>
     </Table>
   )

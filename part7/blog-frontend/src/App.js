@@ -24,7 +24,7 @@ import userService from './services/users'
 import {
   Switch,
   Route,
-  Link
+  Link,
 } from 'react-router-dom'
 
 // Styles
@@ -38,6 +38,7 @@ const App = () => {
   const [users, newUsers] = useState([])
   const blogFormRef = useRef()
   const blogs = useSelector(state => state.blogs)
+  const user = useSelector(state => state.user)
 
   useEffect(() => {
     dispatch(initializeBlogs())
@@ -78,15 +79,19 @@ const App = () => {
         message: `A new blog ${newBlog.title} by ${newBlog.author} added`,
         error: false
       }, 5))
+      console.log('BLOG', user)
+      const curUser = users.find(u => u.username === user.username)
+      curUser.blogs = curUser.blogs.concat(newBlog)
+      console.log(curUser)
+      newUsers(users.map(u => u.username === user.username ? curUser : u))
+      console.log(users)
     } catch (exception) {
       console.log('invalid add')
-
     }
   }
 
   const handleLogout = () => dispatch(logoutUser())
 
-  const user = useSelector(state => state.user)
 
   const smallMiddleContainer = {
     'margin': 'auto',
@@ -112,7 +117,7 @@ const App = () => {
   }
 
   const padding = {
-    'padding-right': 10
+    'paddingRight': 10
   }
 
 
@@ -133,7 +138,7 @@ const App = () => {
           <div className="navbar-text" style={padding}>
             {user.name} logged in
           </div>
-          <Form classname="d-flex">
+          <Form className="d-flex">
             <Button variant="outline-primary" onClick={handleLogout}>
               logout
             </Button>

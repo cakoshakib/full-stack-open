@@ -4,7 +4,7 @@ import { Form, Button } from 'react-bootstrap'
 const Login = ({ username, password, setUsername, setPassword, handleLogin }) => {
   return (
     <div>
-      <h2 style={{ 'text-align': 'center', 'padding-bottom': 30 }}>log in to application</h2>
+      <h2 style={{ 'textAlign': 'center', 'paddingBottom': 30 }}>log in to application</h2>
       <Form onSubmit={handleLogin}>
         <Form.Group>
           <Form.Control
@@ -26,7 +26,7 @@ const Login = ({ username, password, setUsername, setPassword, handleLogin }) =>
             onChange={({ target }) => setPassword(target.value)}
           />
         </Form.Group>
-        <div style={{ 'text-align': 'center' }}>
+        <div style={{ 'textAlign': 'center' }}>
           <Button id='login-button' type='submit'>login</Button>
         </div>
       </Form>

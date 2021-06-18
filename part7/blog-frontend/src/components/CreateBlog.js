@@ -21,7 +21,7 @@ const CreateBlog = ({ createBlog }) => {
   }
 
   const padding = {
-    'padding-right': 10
+    'paddingRight': 10
   }
 
   return (
@@ -68,7 +68,7 @@ const CreateBlog = ({ createBlog }) => {
           })}
         />
       </Form.Group>
-      <div style={{ 'padding-bottom': 10 }}>
+      <div style={{ 'paddingBottom': 10 }}>
         <Button variant="success" id='create-blog' type='submit'>
           create
         </Button>
